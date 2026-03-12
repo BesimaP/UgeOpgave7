@@ -1,0 +1,14 @@
+@startuml
+!pragma layout smetana
+
+    class Cafe {
+        - ArrayList<String> coffeMenu
+        + ArrayList<String> getcoffeMenu()
+    }
+
+    class Main{
+        + {static} main (String [] args)
+    }
+
+    Main o-- Cafe : has a
+@enduml

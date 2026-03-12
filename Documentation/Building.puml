@@ -1,0 +1,33 @@
+@startuml
+!pragma layout smetana
+
+    class Building{
+        - String rooms
+        - int numberOfFloors
+        + getRooms()
+        + getNumberOfFloors()
+        + setRooms()
+        + setNumberOfFloors()
+    }
+
+    class Room{
+        - int numberOfLamps
+        - int numberOfWindows
+        + getNumberOfLamps()
+        + getNumberOfWindows()
+        + setNumberOfLamps()
+        + setNumberOfWindows()
+    }
+
+    class Main{
+        + {static} void main()
+        + static int countLampsInBuilding()
+        + static int countWindowsInBuilding()
+        + static boolean isNormal()
+    }
+
+    Building *-- Room : has a
+    Main *-- Building : has a
+
+
+@enduml

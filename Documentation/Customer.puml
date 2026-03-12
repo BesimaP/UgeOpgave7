@@ -1,0 +1,20 @@
+@startuml
+!pragma layout smetana
+
+    class Customer {
+        -String firstName
+        -String lastName
+        -String userName
+        -int id
+        -{static} int counter
+        +Customer(String firstName, String lastName, String userName)
+        +String toString()
+    }
+
+    class Main {
+        +{static} main(String[] args)
+        +{static} printCustomers(ArrayList<Customer>customers)
+    }
+
+Main o-- Customer : has a
+@enduml
