@@ -1,0 +1,30 @@
+package Assignment7;
+
+    public class Drink {
+        private String name;
+        private int price;
+        private int soldNumber;
+
+        public Drink(String name, int price, int soldNumber){
+            this.name = name;
+            this.price = price;
+            this.soldNumber = soldNumber;
+        }
+
+        public void setSoldNumber(int soldNumber){
+            this.soldNumber = soldNumber;
+        }
+
+        public int getPrice(){
+            return price;
+        }
+
+        @Override
+        public String toString() {
+            return "Drink{" +
+                    "name='" + name + '\'' +
+                    ", price=" + price +
+                    ", soldNumber=" + soldNumber +
+                    '}';
+        }
+    }

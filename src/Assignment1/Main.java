@@ -1,24 +1,21 @@
 package Assignment1;
-
-import java.util.ArrayList;
+import java.util.Scanner;
 
     public class Main {
+        static Scanner scan = new Scanner(System.in);
 
-        public static void main(String[] args){
-            ArrayList<Customer>customers = new ArrayList<>();
-
-
-            // instantier og add i samme linje
-            customers.add(new Customer("Peter", "Pedersen", "peter_p"));
-            customers.add(new Customer("Sofie", "Andersen", "sofie_a"));
-
-            // Print alle kunder
-            printCustomers(customers);
+        public static void main(String [] args){
+            int tal = promptNumber("Indtast et tal:");
+            System.out.println("Du indtastede: " + tal);
         }
 
-        public static void printCustomers(ArrayList<Customer> customers) {
-            for (Customer c : customers) {
-                System.out.println(c);
+        public static int promptNumber(String msg) {
+            System.out.println(msg);
+            try {
+                return Integer.parseInt(scan.nextLine()); //prøv dette
+            } catch (NumberFormatException e){            // hvis det fejler
+                System.out.println("Ugyldigt input - prøv igen");
+                return promptNumber(msg);                 //prøv igen (rekursion)
             }
         }
     }

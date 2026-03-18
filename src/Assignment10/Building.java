@@ -1,4 +1,4 @@
-package Assignment3;
+package Assignment10;
 
     public class Building {
         private String rooms;

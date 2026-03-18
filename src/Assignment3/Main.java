@@ -1,58 +1,88 @@
 package Assignment3;
 
-    public class Main {
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.io.File;
+import java.io.FileNotFoundException;
 
-        public static void main(String [] args){
+public class Main {
 
+        public static void main(String[] args) {
+
+            // Første test: kalder readLines med en fil der eksisterer
+            try {
+                // Kalder readLines med stien til filen
+                ArrayList<String> lines = readLines("data/students.csv");
+                //Printer linje for linje i stedet for hele listen
+                for(String line : lines){
+                    System.out.println(line);
+                }
+                System.out.println(); // tom linje efter listen
+
+                // Fanger FileNotFoundException hvis filen ikke findes
+            } catch (FileNotFoundException e) {
+                // Printer en fejlbesked til brugeren
+                System.out.println("File not found");
+                System.out.println(); // tom linje
+            }
+
+            // Anden test: kalder readLines med en fil der ikke eksisterer
+            try {
+                // Kalder readLines med et filnavn der ikke findes
+                ArrayList<String> lines = readLines("data/findesikke.csv");
+                //Printer linje for linje i stedet for hele listen
+                for(String line : lines){
+                    System.out.println(line);
+                }
+                System.out.println(); // tom linje efter listen
+                // Fanger FileNotFoundException da filen ikke findes
+            } catch (FileNotFoundException e) {
+                // Printer en fejlbesked til brugeren
+                System.out.println("File not found");
+                System.out.println(); // tom linje
+            }
+
+
+            try{
+                ArrayList <String> lines = readLines2("data/students.csv");
+                //Printer linje for linje i stedet for hele listen
+                for(String line : lines){
+                    System.out.println(line);
+                }
+                System.out.println(); // tom linje efter listen
+            } catch (FileNotFoundException e) {
+                System.out.println("File not found");
+                System.out.println(); // tom linje
+            }
         }
 
-        static int countLampsInBuilding(){
-
+        // Læser alle linjer fra en fil og returnerer dem som en ArrayList
+        public static ArrayList<String> readLines(String path) throws FileNotFoundException {
+            // Opretter en tom liste til at gemme linjerne fra filen
+            ArrayList<String> lines = new ArrayList<>();
+            // Åbner filen med Scanner – kaster FileNotFoundException hvis filen ikke findes
+            Scanner scanner = new Scanner(new File(path));
+            // Fortsætter så længe der er flere linjer i filen
+            while (scanner.hasNextLine()) {
+                // Læser næste linje fra filen
+                // Tilføjer linjen til listen
+                lines.add(scanner.nextLine());
+            }
+            scanner.close();
+            // Returnerer listen med alle linjer fra filen
+            return lines;
         }
 
-        static int countWindowsInBuilding(){
+        public static ArrayList<String> readLines2(String path) throws FileNotFoundException{
+            ArrayList<String> lines = new ArrayList<>();
 
+            Scanner scanner = new Scanner(new File(path));
+
+            while(scanner.hasNextLine()){
+                lines.add(scanner.nextLine());
+            }
+            scanner.close();
+            return lines;
         }
 
-        static boolean isNormal(){
-
-        }
-
-        /*
-
-        3.a Lav en klasse Room med følgende private felter:
-        numberOfLamps
-        numberOfWindows
-
-        3.b Lav en konstruktør der tager begge felter som parametre
-        og tildeler dem værdier.
-
-        3.c Lav getters og setters for alle felter i Room.
-
-        3.d Lav en klasse Building med følgende private felter:
-        rooms — en ArrayList<Room> der kan holde flere Room objekter
-        numberOfFloors
-
-        3.e Lav en konstruktør der tager begge felter som parametre
-        og tildeler dem værdier.
-
-        3.f Lav getters og setters for alle felter i Building.
-
-        3.g Lav en klasse Main med en main-metode. Opret mindst tre forskellige Room objekter.
-
-        3.h Tilføj de tre rum til en ArrayList<Room>.
-
-        3.i Opret et Building objekt med listen af rum fra 3.h.
-
-        3.j Lav tre static metoder i Main:
-        countLampsInBuilding(Building building) — returnerer det samlede antal lamper i bygningen
-        countWindowsInBuilding(Building building) — returnerer det samlede antal vinduer
-        countRoomsInBuilding(Building building) — returnerer det samlede antal rum
-
-        Alle tre metoder skal bruge et loop der går igennem hvert rum i bygningen.
-
-        3.k Lav en static metode isNormal(Building building) der returnerer true
-        hvis bygningens antal etager er mindre end eller lig med antal rum — ellers false.
-        Test metoden med både en normal og en unormal bygning.
-                 */
     }
