@@ -2,6 +2,8 @@ package Assignment6;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -36,14 +38,26 @@ public class Cafe {
         }
 
         public void saveData(){
+            try {
+                FileWriter writer = new FileWriter("data/menu.csv");
+                writer.write(header + "\n");
+                for(Drink drink : coffeMenu){
+                    writer.write(drink.getName() +", " + drink.getPrice() + ", " + drink.getSoldNumber() + "\n");
+                }
+                writer.close();
+            } catch(IOException e){
+                System.out.println("Vi fik ikke skrevet til filen");
+            }
 
         }
 
         public void showMenu(){
-
+            for(Drink d : coffeMenu){
+                System.out.println(d);
+            }
         }
 
-        //loadData() — læser data/menu.csv og opretter Drink-objekter
+
         //saveData() — gemmer den opdaterede menu tilbage til filen
         //showMenu() — viser menuen og lader brugeren vælge
 

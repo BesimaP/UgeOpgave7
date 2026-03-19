@@ -11,6 +11,14 @@ package Assignment6;
             this.soldNumber = soldNumber;
         }
 
+        public String getName() {
+            return name;
+        }
+
+        public int getSoldNumber() {
+            return soldNumber;
+        }
+
         public void setSoldNumber(int soldNumber){
             this.soldNumber = soldNumber;
         }
@@ -21,10 +29,9 @@ package Assignment6;
 
         @Override
         public String toString() {
-            return "Drink{" +
+            return "Drink" +
                     "name='" + name + '\'' +
                     ", price=" + price +
-                    ", soldNumber=" + soldNumber +
-                    '}';
+                    ", soldNumber=" + soldNumber;
         }
     }

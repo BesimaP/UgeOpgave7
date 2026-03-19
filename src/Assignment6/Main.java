@@ -6,6 +6,7 @@ package Assignment6;
             Cafe cafe = new Cafe();
 
             cafe.loadData();
-
+            cafe.saveData();
+            cafe.showMenu();
         }
     }
