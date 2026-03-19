@@ -29,7 +29,7 @@ public class Main {
             // Anden test: kalder readLines med en fil der ikke eksisterer
             try {
                 // Kalder readLines med et filnavn der ikke findes
-                ArrayList<String> lines = readLines("data/findesikke.csv");
+                ArrayList<String> lines = readLines2("data/findesikke.csv");
                 //Printer linje for linje i stedet for hele listen
                 for(String line : lines){
                     System.out.println(line);

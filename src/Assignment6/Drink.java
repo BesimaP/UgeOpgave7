@@ -1,4 +1,4 @@
-package Assignment7;
+package Assignment6;
 
     public class Drink {
         private String name;

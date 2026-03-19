@@ -1,10 +1,8 @@
-package Assignment4;
+package Assignment4Assignment5;
 
 import java.util.ArrayList;
 
-import java.util.ArrayList;
-
-    public class Main {
+public class Main {
 
         public static void main(String[] args) {
             // Opretter en liste med drinks i CSV-format: navn, beskrivelse, pris
